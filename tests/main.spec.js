@@ -1,61 +1,61 @@
-var expect = require('chai').expect;
+import { expect } from 'chai';
+import { sum, sub, mult, div } from '../src/main.js';
 
-describe('Main', function() {
-    // describe("Metoda A", function() {
-    //     context('Case 1', function() {
-    //         it.skip('should happen blabla', function() {
-    //             throw new Error('just an error');
-    //         });
-    //     });
+describe('Cal', () => {
 
-    //     context('Case 2', function() {
-    //         it('should happen blabla', function() {
-    //             throw new Error('just an error');
-    //         });
-    //     });
-    //     it('should happen mimimi', function() {
-            
-    //     });
-    // });
+    //smoke tests
+    describe('smoke tests', () => {
 
-    var arr;
+        it('should exist the method `sum`', () => {
+            expect(sub).to.exist;
+            expect(sub).to.be.a('function');
+        });
 
-    before(function(){
-        
+        it('should exist the method `sub`', () => {
+            expect(sum).to.exist;
+            expect(sum).to.be.a('function');
+        });
+
+        it('should exist the method `mult`', () => {
+            expect(mult).to.exist;
+            expect(mult).to.be.a('function');
+        });
+
+        it('should exist the method `div`', () => {
+            expect(div).to.exist;
+            expect(div).to.be.a('function');
+        });
     });
 
-    after(function(){
-        
+    describe('Sum', () => {
+        it('should return 4 when `sum(2,2)`', () => {
+            expect(sum(2, 2)).to.be.equal(4);
+        });
     });
 
-    beforeEach(function(){
-        arr = [1, 2, 3];
+    describe('Sub', () => {
+        it('should return 4 when `sub(6,2)`', () => {
+            expect(sub(6, 2)).to.be.equal(4);
+        });
+
+        it('should return -4 when `sub(6,10)`', () => {
+            expect(sub(6, 10)).to.be.equal(-4);
+        });
     });
 
-    afterEach(function(){
-        
-    });
+    describe('Mult', () => {
+        it('should return 4 when `mult(2,2)`', () => {
+            expect(mult(2, 2)).to.be.equal(4);
+        });
+    })
 
-    it('should be an array', function() {
-        expect(arr).to.be.a('array');
-    });
-
-    it('should have a size of 4 when push another value to the array', function() {
-        arr.push(4);
-        expect(arr).to.have.lengthOf(4);
-    });
-
-    it('should remove the value 3 when use pop in the array', function() {
-        arr.pop();
-        expect(arr).to.not.include(3);
-    });
-
-    it('should return true when pop 3 from the array', function() {
-        expect(arr.pop === 3).to.not.true;
-    });
-
-    it('should have a size of 2 when pop a value from the array', function() {
-        arr.pop();
-        expect(arr).to.have.lengthOf(2);
-    });
+    describe('Div', () => {
+        it('should return 2 when `div(4,2)`', () => {
+            expect(div(4, 2)).to.be.equal(2);
+        });
+        it('should return `não é possível divisão por 0` when divide by zero', () => {
+            expect(div(4, 0)).to.be.equal('Não é possível divisão por zero!');
+        });
+    })
+    
 });
